@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chigekwu Chukwuezi | Computer Science Student</title>
+    <meta
+      name="description"
+      content="Personal website for Chigekwu Chukwuezi, Computer Science student at the University of Georgia."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: '#6f96c4',
+              cream: '#f1e4d0',
+              tan: '#c9a080',
+              mauve: '#927263',
+              brown: '#3f251a'
+            },
+            borderRadius: {
+              blob: '4rem'
+            },
+            fontFamily: {
+              display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+              body: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="bg-brown text-cream font-body antialiased">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="cursor-dot" aria-hidden="true"><span>view</span></div>
+
+    <nav class="site-nav fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-8" aria-label="Primary navigation">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-3">
+        <a href="#top" class="nav-logo" aria-label="Back to top"><img src="favicon.svg" alt="" /></a>
+
+        <div class="nav-pill hidden items-center gap-1 md:flex">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#currently" class="nav-link">Currently</a>
+          <a href="#footer" class="nav-link nav-link-strong">Connect</a>
+        </div>
+
+        <button class="mobile-menu-button md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open navigation menu</span>
+          <span aria-hidden="true">Menu</span>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu" hidden>
+        <div class="mobile-menu-panel">
+          <div class="flex items-center justify-between">
+            <a href="#top" class="nav-logo" aria-label="Back to top"><img src="favicon.svg" alt="" /></a>
+            <button class="mobile-menu-close" type="button" aria-label="Close navigation menu">Close</button>
+          </div>
+          <div class="mobile-menu-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#work">Work</a>
+            <a href="#currently">Currently</a>
+            <a href="#footer">Connect</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content" class="overflow-hidden" tabindex="-1">
+      <span id="top" aria-hidden="true"></span>
+      <section class="relative min-h-screen px-4 pb-16 pt-28 md:px-8 md:pt-36">
+        <div class="hero-blob hero-blob-blue"></div>
+        <div class="hero-blob hero-blob-tan"></div>
+
+        <div class="mx-auto max-w-7xl">
+          <p class="reveal mb-6 w-fit rounded-full border border-cream/15 px-4 py-2 text-sm font-bold uppercase tracking-[0.25em] text-cream/70">
+            CS @ UGA · Systems · Software
+          </p>
+
+          <h1 class="reveal font-display text-[18vw] font-black leading-[0.8] tracking-[-0.09em] md:text-[12vw]">
+            Chigekwu<br />Chukwuezi
+          </h1>
+
+          <div class="mt-10 grid gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-end">
+            <p class="reveal max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.04em] md:text-5xl">
+              Computer Science student interested in software engineering, embedded systems, and building useful technology.
+            </p>
+
+            <div class="reveal rounded-blob bg-cream p-6 text-brown md:justify-self-end md:p-8">
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-brown/60">Quick links</p>
+              <div class="mt-5 grid gap-3 text-lg font-semibold">
+                <a href="#experience">Experience ↓</a>
+                <a href="#education">Education ↓</a>
+                <a href="#work">Selected work ↓</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal mt-10 flex flex-wrap gap-3">
+            <a href="#work" class="button-primary">View work</a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" class="button-secondary">GitHub ↗</a>
+            <a href="#footer" class="button-secondary">Connect ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="px-4 py-12 md:px-8">
+        <div class="mx-auto max-w-7xl rounded-[3rem] bg-cream p-6 text-brown md:rounded-[5rem] md:p-16">
+          <div class="grid gap-10 md:grid-cols-[0.85fr_1.15fr]">
+            <h2 class="reveal section-title">About</h2>
+            <div class="reveal space-y-6 text-xl font-medium leading-relaxed md:text-3xl md:leading-snug">
+              <p>
+                I'm a Computer Science student at the University of Georgia pursuing a <a class="inline-link-dark" href="https://ccchukwuezi.com/index.html" target="_blank" rel="noreferrer">New Media Certificate</a>.
+              </p>
+              <p>
+                My interests span software engineering, embedded systems, web development, and the systems that power everyday technology.
+              </p>
+              <p>
+                I enjoy building projects, learning new technologies, and exploring ideas inside and outside the classroom.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="px-4 py-12 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <h2 class="reveal section-title">Experience</h2>
+            <p class="reveal max-w-xl text-lg font-medium text-cream/70">
+              Software work, student support, technical production, and camp leadership.
+            </p>
+          </div>
+
+          <div class="grid gap-4">
+            <article class="experience-card reveal bg-cream text-brown">
+              <div>
+                <p class="eyebrow text-brown/60">Sep 2024 — May 2025</p>
+                <h3>WAVE Ticketing Platform</h3>
+                <p>Frontend Developer & Co-Founder</p>
+              </div>
+              <p>
+                Co-built a college event ticketing platform serving 200+ active users, developed 40+ pages with HTML, CSS, Tailwind, and React, and assisted with iOS deployment using Xcode.
+              </p>
+            </article>
+
+            <article class="experience-card reveal bg-blue text-brown">
+              <div>
+                <p class="eyebrow text-brown/60">Dec 2025 — Present</p>
+                <h3><a href="https://els.uga.edu/" target="_blank" rel="noreferrer">Engagement Leadership and Service</a></h3>
+                <p>Peer Leader & Engagement Coach</p>
+              </div>
+              <p>
+                Support students through one-on-one meetings, campus engagement planning, resource navigation, progress tracking, and day-to-day office operations.
+              </p>
+            </article>
+
+            <article class="experience-card reveal bg-mauve text-cream">
+              <div>
+                <p class="eyebrow text-cream/60">Sep 2025 — Present</p>
+                <h3><a href="https://www.uberprints.com/" target="_blank" rel="noreferrer">UberPrints</a></h3>
+                <p>Production Assistant</p>
+              </div>
+              <p>
+                Troubleshoot hardware and computer issues in production workflows and operate digital printing systems processing 200+ custom orders daily.
+              </p>
+            </article>
+
+            <article class="experience-card reveal bg-tan text-brown">
+              <div>
+                <p class="eyebrow text-brown/60">Summers 2023 — 2025</p>
+                <h3><a href="https://georgia4h.org/" target="_blank" rel="noreferrer">Georgia 4-H</a></h3>
+                <p>Summer Camp Counselor</p>
+              </div>
+              <p>
+                Supervised staff and coordinated daily operations for 500–1,000 campers per week across multiple program areas.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="px-4 py-12 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <h2 class="reveal section-title">Education</h2>
+            <p class="reveal max-w-xl text-lg font-medium text-cream/70">
+              Computer Science coursework, New Media work, and campus involvement.
+            </p>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
+            <div class="reveal rounded-[3rem] bg-cream p-8 text-brown md:rounded-[5rem] md:p-14">
+              <p class="eyebrow text-brown/60">University</p>
+              <h3 class="mt-4 font-display text-5xl font-black tracking-[-0.08em] md:text-7xl">
+                <a href="https://www.uga.edu/" target="_blank" rel="noreferrer">University of Georgia</a>
+              </h3>
+              <p class="mt-6 text-2xl font-semibold">B.S. Computer Science</p>
+              <p class="mt-2 text-lg text-brown/70"><a class="inline-link-dark" href="https://ccchukwuezi.com/index.html" target="_blank" rel="noreferrer">New Media Certificate</a> · Expected December 2027</p>
+            </div>
+
+            <div class="reveal rounded-[3rem] bg-tan p-8 text-brown md:rounded-[5rem] md:p-14">
+              <p class="eyebrow text-brown/60">Relevant Coursework</p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <span class="pill">Computer Organization</span>
+                <span class="pill">Software Development</span>
+                <span class="pill">Programming Languages</span>
+                <span class="pill">Web Development</span>
+                <span class="pill">New Media Design</span>
+                <span class="pill">Computer Programming I & II</span>
+              </div>
+            </div>
+
+            <article class="mini-card reveal md:col-span-1">
+              <p class="eyebrow">Apr 2026 — Present</p>
+              <h3><a href="https://phibetasigma1914.org/" target="_blank" rel="noreferrer">Phi Beta Sigma Fraternity Inc.</a></h3>
+              <p>Chapter President leading 10+ members across chapter operations, service, and campus programming.</p>
+            </article>
+
+            <article class="mini-card reveal md:col-span-1">
+              <p class="eyebrow">Sep 2024 — May 2025</p>
+              <h3><a href="https://developers.google.com/community/gdg" target="_blank" rel="noreferrer">Google Developer Student Club / GDG</a></h3>
+              <p>E-Board Member for marketing, driving higher workshop attendance through targeted outreach.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="px-4 py-12 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <h2 class="reveal section-title">Selected Work</h2>
+            <p class="reveal max-w-xl text-lg font-medium text-cream/70">
+              Projects across web development, software prototypes, and future systems work.
+            </p>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            <article class="project-card reveal bg-cream text-brown md:col-span-2">
+              <div>
+                <p class="eyebrow text-brown/60">Featured</p>
+                <h3>WAVE Ticketing Platform</h3>
+              </div>
+              <p>
+                A college event ticketing platform built with React, Tailwind, HTML, and CSS, with support for real users, ticket discovery, and iOS deployment.
+              </p>
+              <div class="tag-row dark">
+                <span>React</span><span>Tailwind</span><span>Xcode</span><span>Frontend</span>
+              </div>
+            </article>
+
+            <article class="project-card reveal bg-tan text-brown">
+              <div>
+                <p class="eyebrow text-brown/60">Hackathon</p>
+                <h3>Scholarship Access Platform</h3>
+              </div>
+              <p>
+                Bank of America Code-A-Thon prototype redesigning scholarship navigation to help students find and apply for financial aid more easily.
+              </p>
+              <div class="tag-row dark"><span>Prototype</span><span>AI Features</span><span>UX</span></div>
+            </article>
+
+            <article class="project-card reveal bg-blue text-brown">
+              <div>
+                <p class="eyebrow text-brown/60">Web</p>
+                <h3><a href="https://ccchukwuezi.com/index.html" target="_blank" rel="noreferrer">NMI Portfolio</a></h3>
+              </div>
+              <p>
+                A New Media portfolio documenting web projects, case studies, and coursework from the New Media Institute.
+              </p>
+              <div class="tag-row dark"><span>HTML</span><span>CSS</span><span>NMI</span></div>
+            </article>
+
+            <article class="project-card reveal bg-mauve text-cream md:col-span-2">
+              <div>
+                <p class="eyebrow text-cream/60">Coming Next</p>
+                <h3>Embedded Systems Project</h3>
+              </div>
+              <p>
+                Reserved for hardware, low-level programming, or systems work as that specialization grows.
+              </p>
+              <div class="tag-row"><span>C</span><span>C++</span><span>Systems</span><span>Hardware</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="currently" class="px-4 py-12 pb-20 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <h2 class="reveal section-title mb-8">Currently</h2>
+          <div class="grid gap-4 md:grid-cols-2">
+            <article class="currently-card reveal">
+              <p class="eyebrow">Learning</p>
+              <h3>Embedded systems, computer architecture, and systems programming.</h3>
+            </article>
+            <article class="currently-card reveal">
+              <p class="eyebrow">Building</p>
+              <h3>Portfolio 2.0 and small projects that help me get better.</h3>
+            </article>
+            <article class="currently-card reveal currently-embed-card">
+              <p class="eyebrow">Reading</p>
+              <div class="embed-wrap goodreads-wrap goodreads-updates-wrap">
+                <style>
+                  #gr_updates_widget {
+                    width: 100%;
+                    max-width: 500px;
+                    overflow: hidden;
+                    border: none;
+                    border-radius: 32px;
+                    background: #f1e4d0;
+                    color: #3f251a;
+                    padding: 0;
+                    box-shadow: none;
+                  }
+
+                  #gr_updates_widget iframe {
+                    width: 100%;
+                    height: 400px;
+                    border: 0;
+                    display:block;
+                    background: #f1e4d0;
+                  }
+
+                  #gr_footer {
+                    margin-top: 8px;
+                  }
+
+                  #gr_footer img {
+                    width: 100px;
+                    border: 0;
+                    opacity: 0.82;
+                  }
+                </style>
+                <div id="gr_updates_widget">
+                  <iframe
+                    sandbox
+                    id="the_iframe"
+                    title="Goodreads recent updates"
+                    src="https://www.goodreads.com/widgets/user_update_widget?height=400&amp;num_updates=3&amp;user=183826543&amp;width=500"
+                    width="100%"
+                    height="400"
+                    frameborder="0"
+                  ></iframe>
+                  <div id="gr_footer">
+                    <a href="https://www.goodreads.com/" rel="nofollow">
+                      <img alt="Goodreads" src="https://s.gr-assets.com/images/layout/goodreads_logo_140.png" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="currently-card reveal currently-embed-card">
+              <p class="eyebrow">Watching</p>
+              <div class="embed-wrap letterboxd-wrap">
+                <div id="letterboxd-embed-wrapper-tc">Loading...</div>
+                <script>
+                  fetch('https://lb-embed-content.bokonon.dev?username=cgeezeey')
+                    .then((response) => response.text())
+                    .then((data) => {
+                      document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
+                    });
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="site-footer bg-cream text-brown">
+      <div class="footer-inner w-full px-6 py-12 md:px-16 md:py-16">
+        <div class="mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="eyebrow text-brown/60">Connect</p>
+            <h2 class="mt-3 font-display text-5xl font-black leading-[0.85] tracking-[-0.08em] md:text-7xl">Let's keep in touch.</h2>
+          </div>
+          <div class="social-row" aria-label="Social links">
+            <a class="social-link" href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3.5 9.75h3v10.75h-3V9.75Zm5.5 0h2.86v1.47h.04c.4-.76 1.38-1.72 2.84-1.72 3.04 0 3.6 2 3.6 4.6v6.4h-3v-5.68c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.78H9V9.75Z"/></svg>
+            </a>
+            <a class="social-link" href="#" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9a4.75 4.75 0 0 1-4.75 4.75h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Zm0 2A2.75 2.75 0 0 0 4.75 7.5v9a2.75 2.75 0 0 0 2.75 2.75h9a2.75 2.75 0 0 0 2.75-2.75v-9a2.75 2.75 0 0 0-2.75-2.75h-9Zm4.5 3.1a4.15 4.15 0 1 1 0 8.3 4.15 4.15 0 0 1 0-8.3Zm0 2a2.15 2.15 0 1 0 0 4.3 2.15 2.15 0 0 0 0-4.3Zm4.65-2.85a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg>
+            </a>
+            <a class="social-link" href="#" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.9c0-.74.5-.9.86-.9H17V3h-2.94C11.4 3 10 4.58 10 6.6v1.9H8v3.2h2V21h4v-9.3h2.7l.3-3.2H14Z"/></svg>
+            </a>
+            <a class="social-link" href="#" target="_blank" rel="noreferrer" aria-label="Substack">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v2.4H5V4Zm0 4.2h14v2.4H5V8.2Zm0 4.2h14V21l-7-3.9L5 21v-8.6Z"/></svg>
+            </a>
+            <a class="social-link" href="#" target="_blank" rel="noreferrer" aria-label="Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3v12.1a3.3 3.3 0 1 1-2-3.03V7.3L9 8.55v8.55a3.3 3.3 0 1 1-2-3.03V6l10-3Z"/></svg>
+            </a>
+            <a class="social-link" href="#" target="_blank" rel="noreferrer" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.75a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5Zm4.24 13.35a.75.75 0 0 1-1.03.25c-2.83-1.72-5.5-1.55-7.8-.85a.75.75 0 1 1-.44-1.43c2.62-.8 5.76-.99 9.02 1 .36.22.47.68.25 1.03Zm1.1-2.78a.87.87 0 0 1-1.19.29c-3.24-1.98-6.45-2.19-9.2-1.25a.87.87 0 1 1-.57-1.64c3.18-1.08 6.93-.84 10.67 1.45.4.25.53.76.28 1.15Zm.14-2.97C13.65 8.1 9.39 7.8 6.5 8.66a1 1 0 1 1-.57-1.92c3.33-.98 8.14-.64 12.56 1.95a1 1 0 0 1-1.01 1.72Z"/></svg>
+            </a>
+          </div></div>
+        </div>
+        <div class="footer-bottom mx-auto mt-12 flex w-full max-w-7xl flex-col gap-2 border-t border-brown/10 pt-6 text-sm font-semibold text-brown/70 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Chigekwu Chukwuezi</p>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
