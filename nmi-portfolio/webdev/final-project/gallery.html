@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CG Behind The Lens | Gallery</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">CG Behind The Lens</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="booking.html">Booking</a>
+    </nav>
+  </header>
+
+    <main>
+        <!-- FEATURED CAROUSEL -->
+        <section class="featured-section">
+            <div class="featured-inner">
+                <div class="featured-text">
+                    <h1>Featured photos</h1>
+                    <p>
+                        A few favorites that capture landscapes, connection, and celebration.
+                    </p>
+                </div>
+
+                <div class="featured-carousel">
+                    <div class="carousel-window">
+                        <div class="carousel-slide is-active">
+                            <img src="img/DSC_9734.jpeg" alt="Nigeria Landscape 3" />
+                            <p class="carousel-caption">Nigeria · Landscape 3</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="img/DSC_9851.jpeg" alt="Sister holding Nigerian girl's hand" />
+                            <p class="carousel-caption">Connection · Sister holding a little girl's hand</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="img/DSC_9280.jpeg" alt="Boat with people in Nigeria" />
+                            <p class="carousel-caption">Nigeria · Boat with passengers</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="img/DSC_8892.JPG" alt="Mom and friends at PhD party" />
+                            <p class="carousel-caption">Family · Mom and friends at PhD celebration</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-controls">
+                        <button class="carousel-arrow prev" aria-label="Previous photo">&#10094;</button>
+                        <button class="carousel-arrow next" aria-label="Next photo">&#10095;</button>
+                    </div>
+
+                    <div class="carousel-dots" aria-label="Select featured photo">
+                        <button class="carousel-dot is-active" data-index="0"></button>
+                        <button class="carousel-dot" data-index="1"></button>
+                        <button class="carousel-dot" data-index="2"></button>
+                        <button class="carousel-dot" data-index="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery-section">
+            <header class="gallery-header">
+                <h1>Gallery</h1>
+                <p>
+                    A small collection of moments from Nigeria, family milestones, and campus life.
+                </p>
+            </header>
+
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn is-active" data-filter="all">All</button>
+                <button class="gallery-filter-btn" data-filter="nigeria-landscapes">Nigeria landscapes</button>
+                <button class="gallery-filter-btn" data-filter="nigeria-life">Nigeria life</button>
+                <button class="gallery-filter-btn" data-filter="celebrations">Celebrations &amp; events</button>
+            </div>
+
+            <div class="gallery-grid">
+                <figure class="gallery-item" data-category="nigeria-landscapes">
+                    <img src="img/DSC_9734.jpeg" alt="Landscape in Nigeria" />
+                    <figcaption>Nigeria · Landscape 3</figcaption>
+                </figure>
+
+                <figure class="gallery-item" data-category="nigeria-life">
+                    <img src="img/DSC_9851.jpeg" alt="Sister holding Nigerian girl's hand" />
+                    <figcaption>Connection · Sister holding a little girl's hand</figcaption>
+                </figure>
+
+                <figure class="gallery-item" data-category="nigeria-life">
+                    <img src="img/DSC_9280.jpeg" alt="Boat with people in Nigeria" />
+                    <figcaption>Nigeria · Boat with passengers</figcaption>
+                </figure>
+                <!-- NIGERIA LANDSCAPES (5 images) -->
+                <figure class="gallery-item" data-category="nigeria-landscapes">
+                    <img src="img/DSC_9302.jpeg" alt="Landscape in Nigeria" />
+                    <figcaption>Nigeria · Landscape 1</figcaption>
+                </figure>
+
+                <figure class="gallery-item" data-category="nigeria-landscapes">
+                    <img src="img/DSC_9733.jpeg" alt="Landscape in Nigeria" />
+                    <figcaption>Nigeria · Landscape 2</figcaption>
+                </figure>
+
+                <figure class="gallery-item" data-category="nigeria-landscapes">
+                    <img src="img/DSC_9737.jpeg" alt="Landscape in Nigeria" />
+                    <figcaption>Nigeria · Landscape 4</figcaption>
+                </figure>
+
+                <figure class="gallery-item" data-category="nigeria-landscapes">
+                    <img src="img/DSC_9745.jpeg" alt="Landscape in Nigeria" />
+                    <figcaption>Nigeria · Landscape 5</figcaption>
+                </figure>
+
+                <!-- NIGERIA LIFE (boat, sister + girl, sister at quote) -->
+
+                <figure class="gallery-item" data-category="nigeria-life">
+                    <img src="img/DSC_9816.jpeg" alt="Sister looking at a quote at school" />
+                    <figcaption>Nigeria · Reading a quote on the school wall</figcaption>
+                </figure>
+
+                <!-- CELEBRATIONS & EVENTS (mom PhD, KKPsi) -->
+                <figure class="gallery-item" data-category="celebrations">
+                    <img src="img/DSC_8892.JPG" alt="Mom and friends at PhD party" />
+                    <figcaption>Family · Mom and friends at PhD celebration</figcaption>
+                </figure>
+
+                <figure class="gallery-item" data-category="celebrations">
+                    <img src="img/DSC_8762.JPG" alt="KKPsi members at TSU presentation" />
+                    <figcaption>TSU · KKPsi members celebrating a new presentation</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+
+  <footer>
+    <p>&copy; <span id="year"></span> CG Behind The Lens</p>
+    <p>Final project demo site.</p>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+:root {
+  --nav-color: #313336;  /* The default color of the main navmenu links */
+  --nav-hover-color: #fb0000; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #313336; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #77b6ca; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+.header .btn-getstarted,
+.header .btn-getstarted:focus {
+  color: ghostwhite;
+  background: darkred;
+  font-size: 14px;
+  padding: 8px 25px;
+  margin: 0 0 0 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-getstarted:hover,
+.header .btn-getstarted:focus:hover {
+  color: darkred;
+  background: color-mix(in srgb, ghostwhite, transparent 15%);
+}
+
+.hero .btn-get-started {
+  color: ghostwhite;
+  background: color-mix(in srgb, darkred, transparent 15%);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.hero .btn-get-started:hover {
+  color: darkred;
+  background: color-mix(in srgb, ghostwhite), transparent 15%);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.hero .btn-watch-video {
+  font-size: 16px;
+  transition: 0.5s;
+  margin-left: 25px;
+  color: darkred;
+  font-weight: 600;
+}
+
+.hero .btn-watch-video i {
+  color: darkred;
+  font-size: 32px;
+  transition: 0.3s;
+  line-height: 0;
+  margin-right: 8px;
+}
+
+.hero .btn-watch-video:hover {
+  color: ghostwhite;
+}
+
+.hero .btn-watch-video:hover i {
+  color: color-mix(in srgb, ghostwhite, transparent 15%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: ghostwhite;
+  font-family: Radley;
+}
+

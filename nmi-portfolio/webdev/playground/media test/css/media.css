@@ -1,0 +1,18 @@
+main {
+    background-color: darkcyan;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+p {
+    font-size: 32px;
+}
+
+@media screen and (max-width: 600px) {
+     main {
+        background-color: aquamarine;
+     }
+}

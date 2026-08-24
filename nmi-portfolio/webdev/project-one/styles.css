@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-image: url('images/istockphoto-2179695712-612x612_2025-09-09_01_03_53.588147.jpg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+}
+
+header {
+    background-color: #02734A;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+}
+
+.header-container {
+    display: flex;
+    gap: 30px;
+    border: 5px solid #040504;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin: 20px auto;
+    width: fit-content;
+    background: #fff;
+    color: #53913D;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    word-spacing: 15px;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.background-image-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+}
+
+.background-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: white;
+    z-index: 2;
+    font-size: 2rem;
+}
+
+.image-cards {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-cards:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.image-container {
+    padding: 2px 16px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 40px auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.image-cards img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    display: block;
+}
+
+footer {
+    background-color: #02734A;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+}
+
+.reflection {
+    background-color: #53913D;
+    border: 5px solid #040504;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}

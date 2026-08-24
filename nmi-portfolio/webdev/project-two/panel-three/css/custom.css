@@ -1,0 +1,297 @@
+body, h1, h2, h3, h4, h5, h6, p, a, button, span, div {
+  font-family: "Outfit", sans-serif !important;
+}
+
+/* ===== Custom Theme Overrides for CG Behind The Lens, Yay! ===== */
+
+/* Color Palette */
+:root {
+  --baby-blue: #b3e5fc;
+  --light-brown: #c9a37e;
+  --off-white: #fafafa;
+  --text-dark: #222;
+}
+
+/* Body + Background */
+body {
+  background-color: var(--off-white);
+  color: var(--text-dark);
+  font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Header (Hero section) */
+header.masthead {
+  background: linear-gradient(to bottom right, var(--baby-blue), var(--light-brown)) !important;
+  color: var(--text-dark);
+}
+
+header.masthead h1 {
+  font-family: "Squada One", sans-serif;
+  font-size: clamp(1.8rem, 4vw + 1rem, 4.5rem);
+  letter-spacing: 1px;
+  word-break: break-word;
+}
+
+header.masthead h3 {
+  color: #4b3e35;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.8rem);
+  font-weight: 400;
+}
+
+header.masthead .btn-primary {
+  background-color: var(--light-brown);
+  border: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+header.masthead .btn-primary:hover {
+  background-color: #a47e5c;
+}
+
+header.masthead h1, 
+header.masthead h3 {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  header.masthead .container {
+    padding: 0 1rem;
+  }
+  header.masthead {
+    text-align: center;
+  }
+  header.masthead h1 em {
+    display: inline;
+  }
+}
+
+/* Navigation Sidebar */
+#sidebar-wrapper {
+  background-color: var(--baby-blue);
+}
+
+.sidebar-nav li a {
+  color: #222 !important;
+  font-weight: 500;
+}
+
+.sidebar-nav li a:hover {
+  color: var(--light-brown) !important;
+}
+
+/* Section: About */
+#about {
+  background-color: var(--baby-blue);
+  color: #222;
+  border-top: 4px solid var(--light-brown);
+  border-bottom: 4px solid var(--light-brown);
+}
+
+#about h2 {
+  color: #4b3e35;
+  font-weight: 600;
+}
+
+#about .btn-dark {
+  background-color: var(--light-brown);
+  border: none;
+}
+
+#about .btn-dark:hover {
+  background-color: #a47e5c;
+}
+
+/* Section: Services */
+#services {
+  background-color: var(--light-brown) !important;
+  color: white;
+}
+
+#services .content-section-heading h3.text-secondary {
+  color: var(--baby-blue) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#services .content-section-heading h2 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Icon circles with gradient & polish */
+#services .service-icon {
+  background: linear-gradient(135deg, var(--baby-blue), var(--light-brown));
+  color: #fff;
+  border: none;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .service-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Headings and text */
+#services h4 strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+#services p.text-faded {
+  color: #f9f9f9;
+}
+
+/* Section: Callout */
+.callout {
+  background: linear-gradient(to right, var(--baby-blue), var(--light-brown)) !important;
+  color: #222;
+  padding: 6rem 0;
+}
+
+.callout em {
+  color: #4b3e35;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Portfolio Cards */
+#portfolio {
+  background-color: var(--off-white);
+}
+
+.portfolio-item .caption {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-item:hover .caption {
+  background: rgba(201, 163, 126, 0.8);
+}
+
+#portfolio .container { padding-left: 0; padding-right: 0; }
+#portfolio .row.gx-0 { --bs-gutter-x: 0; --bs-gutter-y: 0; }
+#portfolio .row.gx-0 > .col-lg-6 { padding: 0; position: relative; }
+
+#portfolio .portfolio-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+#portfolio .portfolio-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#portfolio .portfolio-item .caption {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+#portfolio .portfolio-item:hover .caption { opacity: 1; }
+
+#portfolio .row.gx-0 > .col-lg-6:nth-child(1) .portfolio-item {
+  transform: scale(1.08);                 
+}
+
+#portfolio .row.gx-0 > .col-lg-6:nth-child(2) .portfolio-item {
+  transform-origin: top right;
+  transform: scale(0.90) translate(-6%, 10%);  
+}
+
+#portfolio .row.gx-0 > .col-lg-6:nth-child(3) .portfolio-item {
+  transform-origin: bottom left;
+  transform: scale(0.90) translate(6%, -10%); 
+}
+
+#portfolio .row.gx-0 > .col-lg-6:nth-child(4) .portfolio-item {
+  transform: scale(1.08);                 
+}
+
+@media (max-width: 991.98px) {
+  #portfolio .container { padding-left: .75rem; padding-right: .75rem; }
+  #portfolio .row.gx-0 > .col-lg-6 .portfolio-item {
+    transform: none;
+  }
+}   
+
+
+/* Footer */
+.footer {
+  background-color: var(--light-brown);
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.footer a {
+  background-color: var(--baby-blue);
+  color: #222 !important;
+}
+
+.footer a:hover {
+  background-color: #9fd3ff;
+}
+
+/* Buttons */
+.btn-light {
+  background-color: var(--baby-blue);
+  color: #222;
+  border: none;
+}
+
+.btn-light:hover {
+  background-color: #9fd3ff;
+}
+
+.btn-dark {
+  background-color: var(--light-brown);
+  border: none;
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: #a47e5c;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  background-color: var(--baby-blue) !important;
+  color: #222 !important;
+}
+
+.scroll-to-top:hover {
+  background-color: #9fd3ff !important;
+}
+
+section.content-section {
+  border-radius: 16px;
+  margin: 40px auto;
+  padding: 60px 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.footer .social-link {
+  background: linear-gradient(135deg, var(--baby-blue), var(--light-brown));
+  color: #222 !important;
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer .social-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  color: #fff !important;
+}

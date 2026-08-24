@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CG Behind The Lens | Booking</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">CG Behind The Lens</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="booking.html">Booking</a>
+    </nav>
+  </header>
+
+    <main>
+        <section class="booking-section">
+            <div class="booking-layout">
+                <div class="booking-info">
+                <h1>Book a session</h1>
+                <p>
+                    Choose a date and send a quick note about your session idea. This is a demo booking flow for CG Behind
+                    The Lens.
+                </p>
+                <p>
+                    Sessions focus on portraits, family moments, and campus life. Pick a day that works for you, and you’ll
+                    get a follow-up within 24 hours.
+                </p>
+
+                <!-- CALENDAR -->
+                <div class="calendar">
+                    <div class="calendar-header">
+                    <button class="calendar-nav prev-month" aria-label="Previous month">&lt;</button>
+                    <h2 class="calendar-title"></h2>
+                    <button class="calendar-nav next-month" aria-label="Next month">&gt;</button>
+                    </div>
+
+                    <div class="calendar-grid calendar-weekdays">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    </div>
+
+                    <div class="calendar-grid calendar-days" id="calendar-days">
+                    <!-- JS injects days here -->
+                    </div>
+
+                    <p class="calendar-note">
+                    Select a date to fill in the "Preferred date" field on the form.
+                    </p>
+                </div>
+                </div>
+
+                <!-- BOOKING FORM -->
+                <form class="booking-form" id="booking-form" novalidate>
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="session-type">Session type</label>
+                    <select id="session-type" name="session-type">
+                    <option value="portrait">Portrait</option>
+                    <option value="event">Event</option>
+                    <option value="creative">Creative</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="date">Preferred date</label>
+                    <input
+                    id="date"
+                    name="date"
+                    type="text"
+                    placeholder="Tap a date on the calendar"
+                    required
+                    readonly
+                    />
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Session details</label>
+                    <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="Location, time, vibe, and any references."
+                    ></textarea>
+                </div>
+
+                <button type="submit">Submit request</button>
+                <!-- success message from JS goes here -->
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+  <footer>
+    <p>&copy; <span id="year"></span> CG Behind The Lens</p>
+    <p>Final project demo site.</p>
+  </footer>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
