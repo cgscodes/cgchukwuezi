@@ -985,3 +985,44 @@ footer a:hover {
     justify-content: flex-start !important;
   }
 }
+
+/* Career portfolio: readable hierarchy and keyboard-friendly interaction. */
+body { cursor: auto; }
+a, button, [role="button"] { cursor: pointer; }
+.project-card, .experience-card, .mini-card, .currently-card { cursor: auto; }
+section, footer { scroll-margin-top: 7rem; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+.reveal { opacity: 1; transform: none; }
+.hero h1 { font-size: clamp(3.5rem, 9vw, 8rem); }
+.hero > div > p:first-child { letter-spacing: 0.12em; }
+.hero .max-w-3xl { font-size: clamp(1.35rem, 2.6vw, 2.25rem); line-height: 1.3; }
+#about .space-y-6 { font-size: clamp(1.1rem, 1.7vw, 1.5rem); line-height: 1.65; }
+.experience-card h3 { font-size: clamp(1.85rem, 3.5vw, 3.25rem); line-height: 1.08; }
+.experience-details { list-style: disc; padding-left: 1.2rem; font-size: 1.08rem; line-height: 1.65; }
+.experience-details li + li { margin-top: 0.9rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1rem; }
+.skills-grid h3 { font-size: 1.6rem; letter-spacing: -0.04em; }
+.skill-list { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.65rem 1.2rem; line-height: 1.6; }
+.secondary-link { padding: 0.9rem 0.5rem; text-decoration: underline; text-underline-offset: 0.2em; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 0.75rem; max-width: 28rem; }
+.contact-links a { padding: 0.85rem 1.2rem; border-radius: 999px; background: var(--brown); color: var(--cream); font-weight: 700; }
+.contact-links a:focus-visible { outline-color: var(--brown); }
+.text-brown\/60, .text-brown\/70 { color: var(--brown) !important; }
+.text-cream\/60, .text-cream\/70 { color: var(--cream) !important; }
+.nav-pill { background: var(--brown) !important; }
+.nav-pill .nav-link { opacity: 1; }
+.hero-blob { animation: none; }
+.experience-card:hover, .project-card:hover, .mini-card:hover, .currently-card:hover { transform: none; }
+.site-footer { width: 100% !important; margin-left: 0; margin-right: 0; }
+.experience-card > *, .project-card > *, .footer-inner > div > * { min-width: 0; }
+h1, h2, h3, p, a, li { overflow-wrap: break-word; }
+@media (max-width: 767px) {
+  .hero { min-height: auto; padding-bottom: 2rem; }
+  .hero .mt-10 { margin-top: 1.5rem; }
+  .hero .rounded-blob { border-radius: 2rem; }
+  .hero > div > p:first-child { font-size: 0.7rem; }
+  .experience-card, .project-card, .mini-card { padding: 1.5rem; border-radius: 2rem; }
+  #education h3 { font-size: 2.75rem; }
+}
+.mobile-menu { overflow-y: auto; }
+body.menu-open { overflow: hidden; }
