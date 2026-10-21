@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selected Work | Chigekwu Chukwuezi</title>
+    <meta
+      name="description"
+      content="Selected application development, interactive 3D, and web projects by Chigekwu Chukwuezi."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: '#6f96c4',
+              cream: '#f1e4d0',
+              tan: '#c9a080',
+              mauve: '#927263',
+              brown: '#3f251a'
+            },
+            borderRadius: {
+              blob: '4rem'
+            },
+            fontFamily: {
+              display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+              body: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/work/work.css" />
+    <link rel="canonical" href="https://cgchukwuezi.com/work/" />
+  </head>
+
+  <body class="work-page bg-brown text-cream font-body antialiased">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="site-nav fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-8" aria-label="Primary navigation">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-3">
+        <a href="/#top" class="nav-logo" aria-label="Back to home"><img src="/favicon.svg" alt="" width="32" height="32" /></a>
+
+        <div class="nav-pill hidden items-center gap-1 md:flex">
+          <a href="/#about" class="nav-link">About</a>
+          <a href="/#experience" class="nav-link">Experience</a>
+          <a href="/#skills" class="nav-link">Skills</a>
+          <a href="/work/" aria-current="page" class="nav-link">Work</a>
+          <a href="/#contact" class="nav-link nav-link-strong">Contact</a>
+        </div>
+
+        <button class="mobile-menu-button md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open navigation menu</span>
+          <span aria-hidden="true">Menu</span>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu" hidden>
+        <div class="mobile-menu-panel">
+          <div class="flex items-center justify-between">
+            <a href="/#top" class="nav-logo" aria-label="Back to home"><img src="/favicon.svg" alt="" width="32" height="32" /></a>
+            <button class="mobile-menu-close" type="button" aria-label="Close navigation menu">Close</button>
+          </div>
+          <div class="mobile-menu-links">
+            <a href="/#about">About</a>
+            <a href="/#experience">Experience</a>
+            <a href="/#skills">Skills</a>
+            <a href="/work/" aria-current="page">Work</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content" class="work-main" tabindex="-1">
+      <header id="top" class="work-intro">
+        <a class="work-back" href="/#work">← Back to portfolio</a>
+        <div class="work-intro-line"><p class="eyebrow">Project index</p><span class="eyebrow">01 — 04</span></div>
+        <h1>Selected Work<span aria-hidden="true">.</span></h1>
+        <div class="work-intro-bottom">
+          <p>Application development, interactive 3D, and web projects.</p>
+          <a href="#racklab" class="work-text-link">Explore the work ↓</a>
+        </div>
+      </header>
+
+      <section class="work-index" aria-label="Selected projects">
+        <article id="racklab" class="work-project work-feature">
+          <div class="work-project-kicker"><p><span class="work-number">01</span> Interactive 3D</p><p>Newest project · <time datetime="2026">2026</time></p></div>
+          <div class="work-feature-heading">
+            <h2><a href="https://cgscodes.github.io/RackLab/" target="_blank" rel="noopener noreferrer">RackLab <span class="work-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></h2>
+            <p>An interactive 3D server-rack configurator for arranging equipment while tracking rack capacity, placement conflicts, and estimated power use.</p>
+          </div>
+          <a class="work-preview racklab-preview" href="https://cgscodes.github.io/RackLab/" target="_blank" rel="noopener noreferrer" aria-label="Open RackLab live application (new tab)">
+            <div class="preview-bar" aria-hidden="true"><span>RackLab</span><span>Live application ↗</span></div>
+            <img src="/assets/work/racklab-interface.jpg" srcset="/assets/work/racklab-interface-small.jpg 720w, /assets/work/racklab-interface.jpg 1440w" sizes="(max-width: 767px) 92vw, 90vw" width="1440" height="960" alt="RackLab interface showing an interactive 18U server rack, equipment choices, available rack space, and estimated power use." fetchpriority="high" />
+          </a>
+          <div class="work-caption"><p>React · TypeScript · React Three Fiber</p><a class="work-text-link" href="https://cgscodes.github.io/RackLab/" target="_blank" rel="noopener noreferrer">Open application ↗<span class="sr-only"> (new tab)</span></a></div>
+        </article>
+
+        <article id="wave" class="work-project work-wave">
+          <div class="work-project-kicker"><p><span class="work-number">02</span> Campus events</p><p>Frontend</p></div>
+          <div class="wave-layout">
+            <div class="wave-copy">
+              <h2><a href="https://github.com/WAVE-CAMPUS-LLC" target="_blank" rel="noopener noreferrer">WAVE Ticketing Platform <span class="work-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></h2>
+              <p>Campus-event ticketing platform serving more than 200 online users. Co-developed more than 40 responsive pages, mapped user flows, and tested the application for iOS deployment using HTML, CSS, Tailwind CSS, React, and Xcode.</p>
+              <dl class="work-facts"><div><dt>Contribution</dt><dd>Frontend development · User flows · iOS testing</dd></div><div><dt>Built with</dt><dd>HTML · CSS · Tailwind CSS · React · Xcode</dd></div></dl>
+              <a class="work-text-link" href="https://github.com/WAVE-CAMPUS-LLC" target="_blank" rel="noopener noreferrer">View WAVE on GitHub ↗<span class="sr-only"> (new tab)</span></a>
+            </div>
+            <figure class="wave-media">
+              <a class="work-preview reel-preview" href="https://www.instagram.com/reel/DIewRCSsxNg/?cplk=MWE5cDRhNHhlN211bw==" target="_blank" rel="noopener noreferrer" aria-label="Watch Promoting WAVE on Instagram (new tab)">
+                <img src="/assets/work/wave-promo-reel-thumbnail.jpg" srcset="/assets/work/wave-promo-reel-thumbnail-small.jpg 640w, /assets/work/wave-promo-reel-thumbnail.jpg 1053w" sizes="(max-width: 767px) 92vw, 48vw" width="1053" height="862" alt="Three people talking in a campus hallway in the WAVE promotional video." loading="lazy" decoding="async" />
+                <span class="reel-play" aria-hidden="true">▶</span><span class="reel-label">Watch on Instagram ↗</span>
+              </a>
+              <figcaption><h3>Promoting WAVE</h3><p>A short promotional video introducing WAVE and its role in the campus event experience.</p></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article id="scholarship" class="work-project work-scholarship">
+          <div class="work-project-kicker"><p><span class="work-number">03</span> Hackathon</p><p>Prototype · UX</p></div>
+          <div class="scholarship-layout">
+            <a class="work-preview scholarship-preview" href="https://github.com/Edmund-ka/TSU-Scholarship" target="_blank" rel="noopener noreferrer" aria-label="View Scholarship Access Platform on GitHub (new tab)">
+              <span class="eyebrow">Bank of America Code-A-Thon</span>
+              <span class="scholarship-type" aria-hidden="true">Scholarship<br />Access<span>↗</span></span>
+              <span class="type-preview-caption">Scholarship navigation prototype</span>
+            </a>
+            <div class="supporting-copy"><h2><a href="https://github.com/Edmund-ka/TSU-Scholarship" target="_blank" rel="noopener noreferrer">Scholarship Access Platform <span class="work-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></h2>
+              <p>Bank of America Code-A-Thon prototype redesigning scholarship navigation to help students find and apply for financial aid more easily.</p>
+              <p class="work-tools">Prototype · AI Features · UX</p>
+              <a class="work-text-link" href="https://github.com/Edmund-ka/TSU-Scholarship" target="_blank" rel="noopener noreferrer">View repository ↗<span class="sr-only"> (new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article id="nmi" class="work-project work-nmi">
+          <div class="work-project-kicker"><p><span class="work-number">04</span> Web</p><p>New Media Institute</p></div>
+          <div class="nmi-layout">
+            <div class="supporting-copy"><h2><a href="/nmi-portfolio/index.html">NMI Portfolio <span class="work-arrow" aria-hidden="true">↗</span></a></h2>
+              <p>A New Media portfolio documenting web projects, case studies, and coursework from the New Media Institute.</p>
+              <p class="work-tools">HTML · CSS · NMI</p>
+              <a class="work-text-link" href="/nmi-portfolio/index.html">Explore portfolio ↗</a>
+            </div>
+            <a class="work-preview nmi-preview" href="/nmi-portfolio/index.html" aria-label="Explore NMI Portfolio">
+              <span class="eyebrow">CG · New Media Institute</span><span class="nmi-type" aria-hidden="true">NMI<br />Portfolio<span>↗</span></span><span class="type-preview-caption">Web development · Design · Case studies</span>
+            </a>
+          </div>
+          <aside class="nmi-related" aria-label="More NMI work"><p class="eyebrow">Also in the collection</p>
+            <a href="https://medium.com/@chigekwuchukwuezi/list/new-media-case-study-collection-cbedcdafded3" target="_blank" rel="noopener noreferrer"><span><strong>Dossier · Case Study Collection</strong><span>Case studies from NMI courses. Each entry covers goals, process, tools, and results.</span></span><span aria-hidden="true">↗</span><span class="sr-only"> (new tab)</span></a>
+            <a href="https://canva.link/fo5xr4aj1cvdyv4" target="_blank" rel="noopener noreferrer"><span><strong>Project Triple Threat · NMI 4010</strong><span>Graphic Design — Brand style guide and Figma prototypes for Willow Street Flower Shop.</span></span><span aria-hidden="true">↗</span><span class="sr-only"> (new tab)</span></a>
+          </aside>
+        </article>
+      </section>
+      <div class="work-end"><a class="work-text-link" href="/#work">← Back to portfolio</a><a class="work-text-link" href="#top">Back to top ↑</a></div>
+    </main>
+
+    <footer id="contact" class="site-footer bg-cream text-brown">
+      <div class="footer-inner w-full px-6 py-12 md:px-16 md:py-16">
+        <div class="mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="eyebrow text-brown/60">Connect</p>
+            <h2 class="mt-3 font-display text-5xl font-black leading-[0.85] tracking-[-0.08em] md:text-7xl">Let's keep in touch.</h2>
+            <p class="mt-6 max-w-xl text-lg">Interested in networking, systems, infrastructure, or technical-support opportunities? I’d be glad to connect.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:ccc18714@uga.edu">Email</a>
+            <a href="https://www.linkedin.com/in/cchukwuezi/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/cgscodes/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="/assets/chukwuezi_resume.pdf" download>Download Resume</a>
+          </div>
+        </div>
+        <div class="footer-bottom mx-auto mt-12 flex w-full max-w-7xl flex-col gap-2 border-t border-brown/10 pt-6 text-sm font-semibold text-brown/70 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Chigekwu Chukwuezi</p>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

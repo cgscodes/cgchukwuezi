@@ -1,0 +1,91 @@
+/* Project index: shared portfolio palette, typography, navigation, and footer. */
+.work-page { margin: 0; background: var(--brown); color: var(--cream); font-family: 'Inter', system-ui, sans-serif; }
+.work-page *, .work-page *::before, .work-page *::after { box-sizing: border-box; }
+.work-page .nav-pill { backdrop-filter: none; box-shadow: none; border: 1px solid var(--mauve); }
+.work-page .nav-pill .nav-link { color: var(--cream); }
+.work-page .nav-pill .nav-link:hover, .work-page .nav-pill .nav-link:focus-visible, .work-page .nav-pill [aria-current='page'] { background: var(--cream); color: var(--brown) !important; }
+.work-page .mobile-menu { backdrop-filter: none; }
+.work-main { max-width: 1344px; margin: 0 auto; padding: 132px 32px 80px; }
+.work-project, .work-intro { scroll-margin-top: 7rem; }
+.work-intro { padding: 0 0 clamp(48px, 6vw, 88px); }
+.work-back { font-size: .875rem; font-weight: 600; }
+.work-intro-line { margin-top: 48px; display: flex; justify-content: space-between; }
+.work-intro h1 { font: 700 clamp(4rem, 10.8vw, 9.5rem)/.95 'Space Grotesk', sans-serif; letter-spacing: -.075em; margin: 24px 0 28px; }
+.work-intro h1 > span { color: var(--blue); }
+.work-intro-bottom { display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.work-intro-bottom p { max-width: 490px; font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.5; }
+.work-text-link { display: inline-block; font-weight: 700; font-size: .94rem; text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 1px; padding: 8px 0; }
+.work-text-link:hover { text-decoration-thickness: 2px; }
+.work-project { border-top: 1px solid var(--mauve); padding: 26px 0 72px; }
+.work-project-kicker { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; margin-bottom: 36px; }
+.work-number { display: inline-block; min-width: 44px; color: var(--tan); font-variant-numeric: tabular-nums; }
+.work-project h2 { font: 700 clamp(2.5rem, 4.5vw, 4.5rem)/1.02 'Space Grotesk', sans-serif; letter-spacing: -.065em; margin: 0; }
+.work-project h2 a { color: inherit; text-decoration: none; }
+.work-project h2 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.work-arrow { display: inline-block; font-size: .65em; vertical-align: top; transition: transform 180ms ease; }
+.work-project h2 a:hover .work-arrow { transform: translate(3px, -3px); }
+.work-feature-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 40px; margin-bottom: 32px; }
+.work-feature-heading h2 { font-size: clamp(4.5rem, 8vw, 7.5rem); }
+.work-feature-heading > p, .wave-copy > p, .supporting-copy > p { font-size: 1.05rem; line-height: 1.7; }
+.work-preview { position: relative; display: block; overflow: hidden; color: var(--brown); text-decoration: none; }
+.work-preview:hover { text-decoration: none; }
+.work-preview:focus-visible { outline-color: var(--cream); }
+.work-preview img { display: block; width: 100%; height: auto; transition: transform 300ms ease; }
+.racklab-preview { border-radius: 32px; border: 10px solid var(--cream); background: var(--cream); }
+.preview-bar { display: flex; align-items: center; justify-content: space-between; padding: 6px 14px 14px; font-size: .75rem; font-weight: 600; }
+.work-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding-top: 16px; font-size: .875rem; }
+.wave-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.wave-copy > p { margin: 26px 0; }
+.work-facts { margin: 32px 0 20px; }
+.work-facts > div { padding: 16px 0; border-top: 1px solid var(--mauve); }
+.work-facts dt { text-transform: uppercase; letter-spacing: .12em; font-size: .68rem; font-weight: 700; margin-bottom: 8px; }
+.work-facts dd { margin: 0; line-height: 1.6; font-size: .875rem; }
+.wave-media { margin: 0; }
+.reel-preview { border-radius: 40px 40px 8px 8px; background: var(--tan); }
+.reel-preview img { aspect-ratio: 1053 / 862; object-fit: cover; }
+.reel-preview:hover img, .reel-preview:focus-visible img { transform: scale(1.025); }
+.reel-play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; padding-left: 3px; background: var(--cream); color: var(--brown); font-size: 1.3rem; transition: background 180ms ease, transform 180ms ease; }
+.reel-preview:hover .reel-play { background: var(--blue); transform: scale(1.05); }
+.reel-label { position: absolute; bottom: 20px; left: 20px; padding: 8px 12px; background: var(--cream); color: var(--brown); font-size: .75rem; font-weight: 700; border-radius: 4px; }
+.wave-media figcaption { padding: 20px 0 0; max-width: 480px; }
+.wave-media h3 { font: 700 1.4rem/1.2 'Space Grotesk', sans-serif; letter-spacing: -.03em; margin-bottom: 8px; }
+.wave-media figcaption p { font-size: .9rem; line-height: 1.6; }
+.scholarship-layout { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: clamp(32px, 5vw, 72px); }
+.scholarship-preview, .nmi-preview { padding: clamp(24px, 3vw, 44px); min-height: 390px; display: flex; flex-direction: column; justify-content: space-between; }
+.scholarship-preview { background: var(--tan); border-radius: 8px 48px 8px 48px; }
+.scholarship-type, .nmi-type { display: block; position: relative; font: 700 clamp(3.4rem, 5.5vw, 5.8rem)/.92 'Space Grotesk', sans-serif; letter-spacing: -.07em; margin: 42px 0; }
+.scholarship-type > span, .nmi-type > span { position: absolute; right: 0; bottom: 0; font-size: .65em; transition: transform 180ms ease; }
+.work-preview:hover .scholarship-type > span, .work-preview:hover .nmi-type > span { transform: translate(4px, -4px); }
+.type-preview-caption { border-top: 1px solid var(--brown); padding-top: 16px; font-size: .75rem; font-weight: 600; }
+.supporting-copy > p { margin-top: 24px; }
+.supporting-copy .work-tools { font-size: .875rem; margin: 24px 0 12px; }
+.nmi-layout { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: clamp(32px, 5vw, 72px); }
+.nmi-preview { background: var(--blue); border-radius: 48px 8px 48px 8px; }
+.nmi-related { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
+.nmi-related > p { grid-column: 1 / -1; margin-bottom: 16px; }
+.nmi-related > a { padding: 22px 0; border-top: 1px solid var(--mauve); display: flex; gap: 20px; align-items: baseline; justify-content: space-between; }
+.nmi-related strong { display: block; font: 600 1.2rem/1.3 'Space Grotesk', sans-serif; margin-bottom: 10px; }
+.nmi-related a > span > span { display: block; line-height: 1.6; font-size: .875rem; }
+.work-end { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--mauve); padding-top: 24px; }
+@media (max-width: 767px) {
+  .work-main { padding: 112px 20px 48px; }
+  .work-intro-line { margin-top: 32px; }
+  .work-intro h1 { font-size: clamp(3.9rem, 14vw, 6.5rem); max-width: 550px; }
+  .work-intro-bottom { align-items: start; flex-direction: column; gap: 16px; }
+  .work-intro-bottom p { max-width: 320px; }
+  .work-project { padding-bottom: 48px; }
+  .work-project-kicker { font-size: .62rem; letter-spacing: .08em; margin-bottom: 24px; gap: 12px; }
+  .work-number { min-width: 28px; }
+  .work-feature-heading, .wave-layout, .scholarship-layout, .nmi-layout, .nmi-related { grid-template-columns: 1fr; gap: 28px; }
+  .work-feature-heading h2 { font-size: 4.5rem; }
+  .work-feature-heading { gap: 20px; }
+  .racklab-preview { border-width: 5px; border-radius: 16px; }
+  .preview-bar { padding: 5px 8px 10px; font-size: .65rem; }
+  .work-caption { flex-direction: column; gap: 8px; }
+  .wave-copy h2, .supporting-copy h2 { max-width: 460px; }
+  .scholarship-layout .supporting-copy { grid-row: 1; }
+  .scholarship-preview, .nmi-preview { min-height: 330px; }
+  .scholarship-type, .nmi-type { font-size: clamp(3.4rem, 12vw, 5.5rem); }
+  .nmi-related { gap: 0; margin-top: 32px; }
+  .work-end { font-size: .85rem; }
+}

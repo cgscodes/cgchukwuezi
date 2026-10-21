@@ -23,3 +23,9 @@ Place your current PDF at **`assets/Chigekwu-Chukwuezi-Resume.pdf`** (case-sensi
 - `script.js`: keyboard-accessible mobile menu and resume availability check
 - `assets/`: publicly served resume location
 - `nmi-portfolio/`: existing NMI coursework and project pages
+
+## Selected Work
+
+`work/index.html` serves the dedicated project index. GitHub Pages redirects `/work` to `/work/` and serves the directory index, so direct visits and refreshes need no SPA fallback. Shared styling and mobile navigation come from `/styles.css` and `/script.js`; the index layout is scoped to `work/work.css`. The homepage links to this page without adding RackLab to its project selection.
+
+Preview at `http://localhost:8000/work/` with the local server above. Optimized JPEGs in `assets/work/` include a screenshot of the deployed RackLab application and the supplied WAVE hallway photograph, each with a smaller responsive variant. Existing project descriptions and URLs are retained; only RackLab has a supplied project year. Supporting NMI links come from `nmi-portfolio/index.html`.

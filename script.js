@@ -20,7 +20,8 @@ mobileMenuClose?.addEventListener('click', () => setMobileMenu(false));
 mobileMenu.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
     setMobileMenu(false, false);
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    const target = href?.startsWith('#') ? document.querySelector(href) : null;
     if (target) {
       target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
@@ -50,10 +51,11 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
 });
 
 // Clear the missing-resume notice automatically once the real PDF is supplied.
-fetch('assets/Chigekwu-Chukwuezi-Resume.pdf', { method: 'HEAD' })
+fetch('/assets/chukwuezi_resume.pdf', { method: 'HEAD' })
   .then((response) => {
     if (response.ok && response.headers.get('content-type')?.includes('application/pdf')) {
-      document.querySelector('#resume-status').hidden = true;
+      const resumeStatus = document.querySelector('#resume-status');
+      if (resumeStatus) resumeStatus.hidden = true;
       document.querySelectorAll('[aria-describedby="resume-status"]').forEach((link) => {
         link.removeAttribute('aria-describedby');
       });
