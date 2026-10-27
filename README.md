@@ -1,4 +1,4 @@
-# cgchuk
+# cgchukwuezi: my portfolio
 
 my little corner of the internet.
 
