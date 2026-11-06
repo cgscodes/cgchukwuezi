@@ -27,3 +27,7 @@ Ignored local evidence: `artifacts/gold-desktop.png`, `racklab-gate-desktop.png`
 ## Limits
 
 No physical-device or Safari/Firefox test was performed. The preview and checks use installed desktop Chrome with responsive and reduced-motion emulation. Screenshot content is media, not an interactive embedded application; visitors follow the explicit live application link to use RackLab.
+
+## Design-system refinement
+
+The real interface and StageShow layout remain intact. The surrounding portfolio media now uses the shared 32px exterior and 16px interior radii (24/10px compact). Product chrome keeps its verified native dimensions; no portfolio glass is applied inside it. The supplied static gate passes again at desktop and 390px. A fresh independent review of `artifacts/refined-racklab-desktop.png` and `refined-racklab-mobile.png` found no focal-object cropping, duplicate fallback imagery or important clipped content. These remain static-frame claims, not animation-loop claims.

@@ -1,3 +1,6 @@
+/* Product geometry is deliberately preserved: the 20px desktop inset centers
+   a 1080px window in the 1120px Stage; its 7px browser-chrome radius comes from
+   the verified StageShow presentation. Site spacing/radii apply outside it. */
 .racklab-scene {
   & .ss-stage {
     overflow: hidden;

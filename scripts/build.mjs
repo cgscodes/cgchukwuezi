@@ -1,3 +1,4 @@
+import { notFound } from "../src/components/not-found.mjs";
 import {
   nmi,
   webdev,
@@ -10,6 +11,13 @@ import { documentShell } from "../src/components/shared.mjs";
 import { home } from "../src/components/home.mjs";
 import { work } from "../src/components/work.mjs";
 await mkdir("assets/generated", { recursive: true });
+await build({
+  entryPoints: ["styles.css"],
+  bundle: true,
+  minify: true,
+  outfile: "assets/generated/site.css",
+  external: ["/assets/*"],
+});
 await build({
   entryPoints: ["src/scenes/RackLab.tsx"],
   bundle: true,
@@ -65,11 +73,24 @@ for (const [path, title, render] of [
     }),
   );
 }
+await writeFile(
+  "404.html",
+  documentShell({
+    title: "Page not found — Chigekwu Chukwuezi",
+    description: "Return to the portfolio of Chigekwu Chukwuezi.",
+    body: notFound(),
+    page: "not-found",
+    path: "404.html",
+    noindex: true,
+  }),
+);
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
 for (const path of [
   "index.html",
   "styles.css",
+  "tokens.css",
+  "404.html",
   "script.js",
   "favicon.svg",
   "CNAME",

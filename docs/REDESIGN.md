@@ -1,5 +1,7 @@
 # Portfolio redesign
 
+This records the initial overhaul. The current design-system refinement, before/after comparison and changed files are documented in [REFINEMENT.md](REFINEMENT.md); current validation is in [VERIFICATION.md](VERIFICATION.md).
+
 ## Before editing
 
 - Clean working tree. No existing uncommitted changes.

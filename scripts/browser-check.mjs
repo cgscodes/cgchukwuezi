@@ -9,6 +9,7 @@ const browser = await chromium.launch({
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   headless: true,
 });
+const previewOrigin = process.env.PORTFOLIO_ORIGIN || "http://127.0.0.1:8000";
 const results = [];
 const errors = [];
 const pages = [
@@ -25,7 +26,7 @@ for (const width of [1440, 834, 390, 320]) {
   const page = await context.newPage();
   page.on("pageerror", (error) => errors.push(error.message));
   for (const path of pages) {
-    await page.goto("http://127.0.0.1:8000" + path, {
+    await page.goto(previewOrigin + path, {
       waitUntil: "networkidle",
     });
     await page.evaluate(async () => {
@@ -39,14 +40,16 @@ for (const width of [1440, 834, 390, 320]) {
       await image.scrollIntoViewIfNeeded();
       await image.evaluate(async (el) => {
         el.loading = "eager";
-        try {
-          await el.decode();
-        } catch {
-          // Responsive source selection can invalidate an in-flight decode.
-          await new Promise((resolve) => window.requestAnimationFrame(resolve));
-          await el.decode();
-        }
+        // decode() may reject during responsive source selection even when
+        // the selected image subsequently completes; verify the displayed
+        // element rather than treating that transient API result as failure.
+        await el.decode().catch(() => {});
       });
+      await page.waitForFunction(
+        (el) => el.complete && el.naturalWidth > 0,
+        image,
+        { timeout: 10000 },
+      );
     }
     if (await page.locator(".stage-host").count()) {
       await page.locator(".stage-host").scrollIntoViewIfNeeded();
@@ -97,28 +100,34 @@ for (const width of [1440, 834, 390, 320]) {
   await context.close();
 }
 const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
-await mobile.goto("http://127.0.0.1:8000/");
+await mobile.goto(previewOrigin + "/");
 await mobile.getByRole("button", { name: "Menu", exact: true }).click();
-assert(await mobile.getByRole("navigation").isVisible());
+assert(
+  await mobile
+    .getByRole("navigation", { name: "Primary navigation" })
+    .isVisible(),
+);
 await mobile.keyboard.press("Escape");
 assert.equal(
   await mobile.locator(".menu-toggle").getAttribute("aria-expanded"),
   "false",
 );
 assert.equal(
-  await mobile.evaluate(() => document.activeElement.className),
-  "menu-toggle",
+  await mobile.evaluate(() =>
+    document.activeElement.classList.contains("menu-toggle"),
+  ),
+  true,
 );
 await mobile.getByRole("button", { name: "Menu", exact: true }).click();
 await mobile
-  .getByRole("navigation")
+  .getByRole("navigation", { name: "Primary navigation" })
   .getByRole("link", { name: "About", exact: true })
   .click();
 assert.equal(
   await mobile.locator(".menu-toggle").getAttribute("aria-expanded"),
   "false",
 );
-await mobile.goto("http://127.0.0.1:8000/work/");
+await mobile.goto(previewOrigin + "/work/");
 for (const [filter, count] of [
   ["Graphic Design & PR", 2],
   ["UX & Product Design", 3],
@@ -130,8 +139,20 @@ for (const [filter, count] of [
     .click();
   assert.equal(await mobile.locator(".project-entry:visible").count(), count);
 }
+await mobile.goto(previewOrigin + "/work/?category=graphic");
+assert.equal(await mobile.locator(".project-entry:visible").count(), 2);
+await mobile.reload();
+assert.equal(await mobile.locator(".project-entry:visible").count(), 2);
+await mobile
+  .getByRole("button", { name: "Graphic Design & PR", exact: true })
+  .focus();
+await mobile.keyboard.press("Home");
+assert.equal(await mobile.locator(".project-entry:visible").count(), 8);
+assert(!new URL(mobile.url()).searchParams.has("category"));
+await mobile.goBack();
+assert.equal(await mobile.locator(".project-entry:visible").count(), 2);
 await mobile.emulateMedia({ reducedMotion: "reduce" });
-await mobile.goto("http://127.0.0.1:8000/");
+await mobile.goto(previewOrigin + "/");
 assert.equal(
   await mobile
     .locator(".tree-word")
@@ -145,7 +166,7 @@ await mobile
   .locator(".racklab-visual")
   .screenshot({ path: "artifacts/racklab-reduced-motion.png" });
 await mobile.setViewportSize({ width: 720, height: 1000 });
-await mobile.goto("http://127.0.0.1:8000/");
+await mobile.goto(previewOrigin + "/");
 assert(
   !(await mobile.evaluate(
     () => document.documentElement.scrollWidth > window.innerWidth,
@@ -170,9 +191,13 @@ const nojs = await browser.newContext({
   viewport: { width: 390, height: 844 },
 });
 const staticPage = await nojs.newPage();
-await staticPage.goto("http://127.0.0.1:8000/work/");
+await staticPage.goto(previewOrigin + "/work/");
 assert.equal(await staticPage.locator(".project-entry:visible").count(), 8);
-assert(await staticPage.getByRole("navigation").isVisible());
+assert(
+  await staticPage
+    .getByRole("navigation", { name: "Primary navigation" })
+    .isVisible(),
+);
 await staticPage.screenshot({
   path: "artifacts/work-no-js.png",
   fullPage: true,
@@ -185,7 +210,7 @@ const fallbackPage = await failureContext.newPage();
 await fallbackPage.route("**/assets/generated/scenes.css", (route) =>
   route.abort(),
 );
-await fallbackPage.goto("http://127.0.0.1:8000/work/");
+await fallbackPage.goto(previewOrigin + "/work/");
 await fallbackPage.locator(".stage-host").scrollIntoViewIfNeeded();
 await fallbackPage.waitForTimeout(400);
 assert.equal(
@@ -199,7 +224,7 @@ const keyboardContext = await browser.newContext({
   viewport: { width: 1440, height: 1000 },
 });
 const keyboardPage = await keyboardContext.newPage();
-await keyboardPage.goto("http://127.0.0.1:8000/");
+await keyboardPage.goto(previewOrigin + "/");
 await keyboardPage.keyboard.press("Tab");
 assert(
   await keyboardPage
@@ -219,6 +244,88 @@ assert(
     .evaluate((el) => document.activeElement === el),
 );
 await keyboardContext.close();
+
+const downloadContext = await browser.newContext({
+  acceptDownloads: true,
+  viewport: { width: 390, height: 844 },
+});
+const downloadPage = await downloadContext.newPage();
+await downloadPage.goto(previewOrigin + "/");
+const downloadEvent = downloadPage.waitForEvent("download");
+await downloadPage
+  .locator("footer")
+  .getByRole("link", { name: "Download résumé" })
+  .click();
+const download = await downloadEvent;
+assert.equal(download.suggestedFilename(), "chukwuezi_resume.pdf");
+await download.saveAs("artifacts/downloaded-resume.pdf");
+const { createHash } = await import("node:crypto");
+const { readFile } = await import("node:fs/promises");
+const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");
+assert.equal(
+  digest(await readFile("artifacts/downloaded-resume.pdf")),
+  digest(await readFile("assets/chukwuezi_resume.pdf")),
+);
+await downloadContext.close();
+// Remove @supports blocks to exercise the opaque baseline, not merely hide blur.
+const fallbackContext = await browser.newContext({
+  viewport: { width: 390, height: 844 },
+});
+const glassPage = await fallbackContext.newPage();
+await glassPage.route("**/assets/generated/site.css", async (route) => {
+  const response = await route.fetch();
+  const css = (await response.text()).replace(
+    /@supports[^{}]*\{(?:[^{}]|\{[^{}]*\})*\}/g,
+    "",
+  );
+  await route.fulfill({ response, body: css });
+});
+await glassPage.goto(previewOrigin + "/work/");
+assert.equal(
+  await glassPage
+    .locator(".site-header")
+    .evaluate((el) => window.getComputedStyle(el).backdropFilter),
+  "none",
+);
+assert.equal(
+  await glassPage
+    .locator(".site-header")
+    .evaluate((el) => window.getComputedStyle(el).backgroundColor),
+  "rgb(244, 239, 231)",
+);
+await glassPage.getByRole("button", { name: "Menu", exact: true }).click();
+assert(
+  await glassPage
+    .getByRole("navigation", { name: "Primary navigation" })
+    .isVisible(),
+);
+await glassPage.screenshot({ path: "artifacts/glass-fallback.png" });
+await fallbackContext.close();
+const contrastContext = await browser.newContext({
+  viewport: { width: 390, height: 844 },
+});
+const contrastPage = await contrastContext.newPage();
+const contrastSession = await contrastContext.newCDPSession(contrastPage);
+await contrastSession.send("Emulation.setEmulatedMedia", {
+  features: [
+    { name: "prefers-reduced-transparency", value: "reduce" },
+    { name: "prefers-contrast", value: "more" },
+  ],
+});
+await contrastPage.goto(previewOrigin + "/");
+assert(
+  await contrastPage.evaluate(
+    () => window.matchMedia("(prefers-contrast: more)").matches,
+  ),
+);
+assert.equal(
+  await contrastPage
+    .locator(".site-header")
+    .evaluate((el) => window.getComputedStyle(el).backdropFilter),
+  "none",
+);
+await contrastContext.close();
+
 await writeFile(
   "artifacts/browser-results.json",
   JSON.stringify(

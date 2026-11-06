@@ -107,3 +107,18 @@ test("production artifact preserves the original domain, resume and course asset
   );
   assert((await stat("dist/assets/generated/scenes.js")).size < 220000);
 });
+test("new personal profiles, semantic tokens, social image and 404 ship correctly", async () => {
+  const home = documents[0];
+  assert(home.includes("https://music.apple.com/profile/cgchukwuezi"));
+  assert(home.includes("https://substack.com/@cgchuk"));
+  assert(!home.includes('href="https://www.facebook.com'));
+  assert(home.includes("Download résumé"));
+  const og = await readFile("dist/assets/social-preview.png");
+  assert.equal(og.readUInt32BE(16), 1200);
+  assert.equal(og.readUInt32BE(20), 630);
+  const error = await readFile("dist/404.html", "utf8");
+  assert(error.includes("noindex"));
+  assert(error.includes("Back to home"));
+  assert((await stat("dist/tokens.css")).isFile());
+  for (const html of documents) assert(html.includes("og:image"));
+});

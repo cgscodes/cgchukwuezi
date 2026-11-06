@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "python3 -m http.server 8000 --bind 127.0.0.1",
     "build": "node scripts/build.mjs",
-    "format": "prettier --write src/components src/data src/scenes/RackLab.tsx src/scenes/racklab.css scripts styles.css script.js",
-    "format:check": "prettier --check src/components src/data src/scenes/RackLab.tsx src/scenes/racklab.css scripts styles.css script.js",
+    "format": "prettier --write src/components src/data src/scenes/RackLab.tsx src/scenes/racklab.css scripts styles.css tokens.css script.js eslint.config.mjs",
+    "format:check": "prettier --check src/components src/data src/scenes/RackLab.tsx src/scenes/racklab.css scripts styles.css tokens.css script.js eslint.config.mjs",
     "lint": "eslint script.js scripts src/components src/data src/scenes/RackLab.tsx",
     "typecheck": "tsc --noEmit",
     "test": "node --test scripts/portfolio.test.mjs"

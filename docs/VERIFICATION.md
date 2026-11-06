@@ -1,55 +1,56 @@
-# Verification
+# Verification — design-system refinement
 
-## Automated checks
+## Scope
 
-Final result: all checks below passed. The browser suite covered 20 page/viewport combinations with zero JavaScript errors and zero axe violations across its ten desktop/mobile scans. Enlarged text, keyboard, reduced-motion and fallback assertions also passed.
+The existing overhaul was audited and refined in place. The working tree was clean before editing. Compare `docs/REFINEMENT.md` for the initial findings, token contract, before/after table and changed files. No framework, route, analytics or hosting migration was performed.
 
-- Formatter, ESLint, TypeScript, production build, clean whitespace check and five regression tests. The installed dependency audit reported zero vulnerabilities after patching the development glob dependency.
-- Regression tests cover preservation of original destinations/anchors, all internal targets on the redesigned portfolio and collection pages, social destinations, safe external tabs, static content, analytics, original domain and deployed assets.
-- Browser suite: desktop 1440, tablet 834, mobile 390 and compact 320. Home, Work, NMI, Web Development and Playground.
-- Keyboard menu, Escape/focus restoration, skip link and visible focus; all four work filters; reduced-motion tree; 200% desktop layout and 200% text sizing; no-JavaScript work and navigation; image loading and optional scene stylesheet failure.
-- Axe checks for WCAG 2 A/AA and 2.1 A/AA at desktop and mobile. Automated accessibility checks complement visual/keyboard checks and are not a complete WCAG certification.
-- StageShow's supplied static-frame gate at desktop and compact widths, plus an independent visual review. See `src/scenes/REHEARSAL.md`.
-- Recursively inspected all local link targets in the coursework HTML; no missing file targets remain. Existing coursework apps and their original design assets are preserved.
+## Checks
+
+Final result: formatter, lint, types, build and all six regression tests pass. The responsive suite reports zero axe violations and zero JavaScript errors. Targeted final checks also pass for stable menu sizing/close-icon state, 320px at 200% text, custom 404, delayed-image reveal and its reduced-motion fallback.
+
+- Formatter, ESLint, TypeScript, six regression tests and production build.
+- Chrome at 1440, 834, 390 and 320px: Home, Work, NMI, Web Development and Playground. Twenty page/viewport combinations, with axe WCAG 2/2.1 A/AA scans at desktop/mobile.
+- Visible media decoding, no horizontal overflow, keyboard menu/Escape/focus restoration and skip link.
+- Every Work filter; query-state restoration on reload; keyboard Home/arrows; browser Back restoration.
+- Reduced motion; 200% desktop layout and 200% text; no-JavaScript content/navigation.
+- An opaque fallback test removes the backdrop-filter support block and checks readable navigation and functioning menu. Increased-contrast/reduced-transparency handling is checked in Chrome emulation.
+- Optional StageShow stylesheet failure retains the real poster. The existing static scene passes its supplied desktop/390px `--still --gate` checks; there is no application loop or cursor animation to claim as tested.
+- A real browser download verifies the name `chukwuezi_resume.pdf` and compares its bytes with the original local PDF. Git baseline SHA-256 also matches exactly.
+- Original destination/anchor preservation, safe external tabs, all project/category information, analytics ID, CNAME, résumé and coursework assets are covered by regression checks.
+- Open Graph asset is a real 1200×630 PNG; canonical/meta/favicons remain present. `404.html` ships with noindex and usable navigation. GitHub Pages serves this file for unknown routes; the simple Python preview can show it directly at `/404.html`.
 
 ## Performance
 
-Mobile Lighthouse comparison on local Chrome, default simulated mobile settings:
+Sequential mobile Lighthouse runs using the same local Chrome setup:
 
-| Metric | Original | Redesign |
+| Metric | Existing overhaul | Refinement |
 | --- | --- | --- |
-| Performance | 92 | 100 |
-| First Contentful Paint | 2.3 s | 1.1 s |
-| Largest Contentful Paint | 2.3 s | 1.1 s |
-| Total Blocking Time | 190 ms | 20 ms |
-| Cumulative Layout Shift | 0.019 | 0.013 |
+| Performance | 96 | 98 |
+| First Contentful Paint | 1.2 s | 1.1 s |
+| Largest Contentful Paint | 2.7 s | 2.5 s |
+| Total Blocking Time | 40 ms | 60 ms |
+| Cumulative Layout Shift | 0.012 | 0 |
 
-The original HTML/CSS/JS was served from an ignored baseline directory for comparison. These are local lab measurements, not a guarantee for every device or the production network. An early run identified an expensive SVG noise filter; it was removed. The result retains the atmospheric gradient and native typographic tree. Full reports are in ignored `artifacts/lighthouse-before.json` and `lighthouse-after-optimized.json`.
+These are local lab measurements, not production guarantees. The initial refinement exposed a font-loading shift; critical font preloads and a single minified stylesheet removed it. `styles.css`, font declarations and `tokens.css` are compiled to committed `assets/generated/site.css`, eliminating the runtime CSS import waterfall. Font/media assets remain local and project media remains lazy loaded. No analytics were disabled for the performance measurements.
 
-Font binaries total approximately 141 KB. The portrait derivative is approximately 55 KB instead of the original 2.2 MB. Original media are preserved. The optional StageShow bundle loads as the feature approaches the viewport; it does not run the site shell. Reduced-motion users receive the complete artwork immediately.
+Evidence: ignored `artifacts/refinement-lighthouse-before.json` and `refinement-lighthouse-after-optimized.json`. The prior overhaul is preserved from Git in an ignored baseline directory for the comparison, not shipped in production.
 
-## External links
+## Links and content
 
-All 16 unique external destinations on the redesigned portfolio and collection pages were checked without copying page content.
+All 18 unique external portfolio/collection destinations were checked without copying profile content. Apple Music, Substack, both PR Instagram profiles, WAVE's existing reel, GitHub/project repositories, UGA, NMI, the chapter site and Goodreads returned HTTP 200. The Google developer-community URL redirects successfully. LinkedIn (999), Letterboxd, Medium and Canva (403) restrict automated verification; those original destinations remain intact.
 
-- Both requested Instagram profiles returned HTTP 200, as did the existing WAVE reel.
-- RackLab, WAVE's GitHub organization, the scholarship repository, GitHub profile, UGA, NMI, the chapter site and Goodreads returned HTTP 200.
-- The original Google developer-community link resolves through a redirect; preserved.
-- LinkedIn returns 999 to automated requests; Letterboxd and Medium return 403. Canva resolves to the original design and returns 403 to automation. These links are preserved; authenticated or human-browser availability could not be conclusively verified.
-- Email and résumé links are present; no message was sent. The local résumé exists and is included in production output.
+Approved local samples for PR are still missing, so those entries use real organization names, roles, descriptions and links in text-led layouts. Personal Instagram/Facebook URLs were not verified and are omitted. Existing Goodreads/Letterboxd content remains alongside the requested new profiles. No listening history, article titles, campaign authorship, dates or metrics were invented.
 
-Raw results: ignored `artifacts/external-links.json`.
+Owner input still needed: personal Instagram/Facebook destinations; approved PR samples; Project Four materials; the previously reported graduation-date discrepancy and any precise project role/date confirmations. BookOrbit remains unverified in this repository and is not added.
 
-## Deployment
+## Limits and deployment
 
-`npm run build` produces the complete static website in `dist/` and refreshes the committed HTML and scene assets for the existing repository-root GitHub Pages deployment. `CNAME` remains `cgchukwuezi.com`. No domain, framework, hosting account, or route migration is required. No production deployment was performed.
+Physical devices and Safari/Firefox were not tested. Axe and Chrome emulation supplement the visual/keyboard checks; they are not a complete WCAG certification. The in-app browser connection failed before opening a page, so local Chrome was used.
 
-## Content still needed
+`npm run build` refreshes root HTML/generated assets and assembles a complete static `dist/` including tokens, OG PNG and custom 404. `CNAME` remains `cgchukwuezi.com`. Existing repository-root GitHub Pages deployment continues to work. No debug/test routes or `artifacts/` files are included in the production output. No deployment, commit, push or external account write was performed.
 
-- Approved Phi Beta Sigma and GDG design samples; current typography is explicitly labeled presentation artwork.
-- Project Four materials; the existing route now reports their absence honestly.
-- Confirm graduation date: original metadata said May 2027, while Education says December 2027. The explicit Education date is preserved; new metadata avoids a graduation date.
-- Confirm precise RackLab role and any omitted project dates before expanding those facts.
-- BookOrbit content/assets, if it should be added later; nothing in this repository verified that project.
+## Navigation theme toggle
 
-Browser checks use Chrome emulation. Physical devices and Safari/Firefox remain untested. The in-app Browser tool failed before opening a page because of environment metadata, so local headless Chrome was used for inspection and verification.
+The portfolio now follows the device color scheme on first visit. The sun/moon navigation button switches to the opposite mode and stores the explicit choice under `cgchuk-theme`; mobile users access it in Menu. The preference applies before CSS paints and persists across portfolio routes/reloads. System changes are followed until a manual choice is made. Blocked storage still permits an in-page selection.
+
+`scripts/theme-check.mjs` passes for both system schemes at 1440, 390 and 320px on Home and Work, including keyboard activation, persistence, live system changes, blocked storage, overflow and twelve axe scans with zero violations. Theme changes update text and surfaces atomically to avoid low-contrast intermediate colors. Project screenshots and StageShow's actual interface remain unchanged.
