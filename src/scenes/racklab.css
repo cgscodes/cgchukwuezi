@@ -1,0 +1,40 @@
+.racklab-scene {
+  & .ss-stage {
+    overflow: hidden;
+    background: transparent;
+  }
+  & .racklab-window {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 1080px;
+    height: 790px;
+    box-shadow: none;
+    border-radius: 7px;
+  }
+  & .racklab-window .ss-window__body {
+    background: #deded9;
+  }
+  & .racklab-window img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  & .racklab-detail {
+    display: none;
+  }
+  & [data-layout="compact"] .racklab-window {
+    left: 16px;
+    top: 16px;
+    width: 326px;
+    height: 420px;
+  }
+  & [data-layout="compact"] .racklab-full {
+    display: none;
+  }
+  & [data-layout="compact"] .racklab-detail {
+    display: block;
+  }
+  /* Compact: a focused crop of the real equipment viewport, with no cut text
+     or fabricated mobile controls. The screenshot is editorial media. */
+}
